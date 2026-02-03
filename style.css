@@ -1,0 +1,148 @@
+:root {
+    --primary-color: #ff4b6e;
+    --secondary-color: #ff8fa3;
+    --text-color: #333;
+    --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    --heart-color: #e63946;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+    font-family: 'Outfit', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.header {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-shadow: 2px 2px 0px rgba(255, 192, 203, 0.5);
+}
+
+.image-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.valentine-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: relative; /* Contain buttons contextually */
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.yes-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: #ff2e56;
+    transform: scale(1.05);
+}
+
+.no-btn {
+    background-color: #f1f1f1;
+    color: #555;
+    /* IMPORTANT: transition needs to be very fast or instant for the jump to feel responsive, 
+       but for the 'run away' effect, sometimes no transition is better so it instantly snaps to new spot.
+       However, a small transition makes it look like it's sliding away. 
+       Let's use a small transition in JS or CSS for the move? 
+       Actually, if we change top/left, we can animate it.
+    */
+    position: relative; /* Default position */
+}
+
+/* Hidden state for success message */
+.celebration {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 100;
+    max-width: 90%;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add some floating hearts in background */
+.heart-bg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    clip-path: path('M10,3.3 C13.3,-1.7 20,1.7 20,8.3 C20,15 10,20 10,20 C10,20 0,15 0,8.3 C0,1.7 6.7,-1.7 10,3.3 Z');
+    animation: fly 10s linear infinite;
+    bottom: -20px;
+}
+
+@keyframes fly {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
