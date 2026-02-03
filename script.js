@@ -17,6 +17,10 @@ yesBtn.addEventListener('click', () => {
 
 // No Button Evasion
 const moveNoBtn = () => {
+    const whisper = document.getElementById('whisper');
+    whisper.classList.add('visible');
+    whisper.classList.remove('hidden');
+
     const containerRect = container.getBoundingClientRect();
     const btnRect = noBtn.getBoundingClientRect();
 

@@ -210,3 +210,16 @@ body {
         transform: scale(1);
     }
 }
+/* Whispering Yes */
+.whisper {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.whisper.visible {
+    opacity: 1;
+}
